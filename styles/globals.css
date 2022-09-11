@@ -34,6 +34,11 @@ a {
   src: url("../public/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf");
 }
 
+@font-face {
+  font-family: "russo";
+  src: url("../public/Russo_One/RussoOne-Regular.ttf");
+}
+
 /* @layer components {
  
 }
@@ -63,6 +68,30 @@ a {
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   border: 1px solid rgb(134 239 172);
+}
+
+.radial {
+  background-image: radial-gradient(circle at center center, #b2b2c4, #111827),
+    repeating-radial-gradient(
+      circle at center center,
+      #b2b2c4,
+      #b2b2c4,
+      32px,
+      transparent 64px,
+      transparent 32px
+    );
+  background-blend-mode: multiply;
+  background-color: #111827;
+}
+
+.circ {
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #0f1625 60px
+    ),
+    repeating-linear-gradient(#111827, #111827);
+  background-color: #0f1625;
 }
 
 @-moz-document url-prefix() {

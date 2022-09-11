@@ -29,26 +29,26 @@ export default function header() {
     <div className="glassWhite fixed w-full z-50">
       <div className="w-full h-8 font-grotesk p-6 relative pb-8">
         <div className="flex items-center h-full">
-          <button className="text-slate-300 ml-8 border-green-300 rounded hover:border-green-500 duration-300">
+          <button className="text-gray-500 ml-8 border-green-300 rounded hover:border-green-500 duration-300">
             Projects
           </button>
-          <button className="text-slate-300 ml-8 border-green-300 rounded border-b-4">
+          <button className="text-gray-500 ml-8 border-green-300 rounded border-b-4">
             Home
           </button>
-          <button className="text-slate-300 ml-8 border-green-300 rounded">
+          <button className="text-gray-500 ml-8 border-green-300 rounded">
             Stack
           </button>
-          <button className="text-slate-300 ml-8 border-green-300 rounded">
+          <button className="text-gray-500 ml-8 border-green-300 rounded">
             Portfolio
           </button>
         </div>
-        <div className="absolute right-4 top-2 flex font-grotesk text-slate-400 font-bold ">
+        <div className="absolute right-4 top-2 flex font-grotesk text-white font-bold ">
           <div className="flex p-2 text-sm rounded-lg bg-gray-800 px-4 ">
             {" "}
             <p className="mr-1">Email </p>
             {emailIIcon}
           </div>
-          <div className="flex ml-6 bg-gray-800 p-2 text-sm rounded-lg px-4">
+          <div className="flex ml-6 bg-green-400 p-2 text-sm rounded-lg px-4">
             {" "}
             <p className="mr-1">Call</p> {phoneIcon}
           </div>

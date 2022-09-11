@@ -56,10 +56,13 @@ export default function Projects() {
   return (
     <div className="h-screen w-screen bg-gray-800 pt-20">
       <div className="flex item-center justify-center">
-        <div className="text-6xl text-black shadow-lg border-b-4 border-green-300 p-5 tracking-wider bg-gray-100 w-fit rounded-3xl flex items-center justify-center">
+        <div className="text-6xl text-black shadow-lg hidden border-b-4 border-green-300 p-5 bg-gray-100 w-fit rounded-3xl flex items-center justify-center">
           {ProjectIcon}
           <div className="h-[2px] w-4 bg-black -ml-1"></div>
           <p className="-mt-2">projects</p>
+        </div>
+        <div className="text-8xl text-white flex items-center justify-center font-russo">
+          <p className="-mt-2">Projects</p>
         </div>
       </div>
       <div>
@@ -67,7 +70,7 @@ export default function Projects() {
           initial={{ opacity: 0, marginTop: "150px" }}
           whileInView={{ opacity: 1, marginTop: "32px" }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="mt-10 flex items-center justify-center"
         >
           <div className="h-96 w-64 glassWhite rounded-3xl flex-col flex relative">
