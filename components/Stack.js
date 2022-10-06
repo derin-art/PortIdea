@@ -4,6 +4,19 @@ import { motion } from "framer-motion";
 export default function Stack() {
   const svgSize = "30";
 
+  const slantedArrow = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width="34"
+      height="34"
+      className="fill-green-400 p-1 border border-green-800 rounded-lg"
+    >
+      <path fill="none" d="M0 0h24v24H0z" />
+      <path d="M12.36 13.05L17.31 18H5.998V6.688l4.95 4.95 5.656-5.657 1.415 1.414z" />
+    </svg>
+  );
+
   const stackIcon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -40,11 +53,11 @@ export default function Stack() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
+        clipRule="evenodd"
         d="m7.5 3c-1.86667 0-3.03333 1-3.5 2.99999.7-1 1.51667-1.37499 2.45-1.125.53252.14264.91314.55656 1.33443 1.01475.68631.74639 1.48063 1.61025 3.21557 1.61025 1.8667 0 3.0333-1 3.5-2.99999-.7.99999-1.5167 1.37499-2.45 1.12499-.5325-.14264-.9131-.55655-1.3344-1.01474-.6863-.74639-1.48066-1.61025-3.2156-1.61025zm-3.5 4.49999c-1.86667 0-3.033333.99999-3.5 3.00001.7-1.00002 1.51667-1.37502 2.45-1.12502.53252.14264.91314.55656 1.33443 1.01472.68631.7464 1.48063 1.6103 3.21557 1.6103 1.86667 0 3.0333-1 3.5-3.00002-.7 1-1.51667 1.37502-2.45 1.12502-.53252-.14266-.91314-.55657-1.33443-1.01477-.68631-.74638-1.48063-1.61024-3.21557-1.61024z"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         stroke="#4ade80"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -117,17 +130,20 @@ export default function Stack() {
   );
 
   return (
-    <div className="bg-gray-900 h-fit md:h-screen w-full relative pt-24">
+    <div
+      className="bg-gray-900 h-fit md:h-screen w-full relative pt-24 pb-8"
+      id="Stack"
+    >
       <div>
         <div className="flex justify-center hidden">
-          <div className="text-6xl text-black shadow-lg border-b-4 border-green-300 p-4 tracking-wider bg-gray-100 w-fit rounded-3xl flex items-center justify-center">
+          <div className="md:text-6xl text-3xl text-black shadow-lg border-b-4 border-green-300 p-4 tracking-wider bg-gray-100 w-fit rounded-3xl flex items-center justify-center">
             {stackIcon}
             <div className="h-[2px] w-4 bg-black -ml-4"></div>
             <p className="-mt-2">stack</p>
           </div>
         </div>
         <div className="flex justify-center">
-          <div className="text-8xl text-white p-4 tracking-wider w-fit rounded-3xl flex items-center justify-center font-russo">
+          <div className="md:text-8xl text-5xl text-white p-4 tracking-wider w-fit rounded-3xl flex items-center justify-center font-russo">
             <p className="-mt-2">Stack</p>
           </div>
         </div>
@@ -137,7 +153,7 @@ export default function Stack() {
             whileInView={{ opacity: 1, marginTop: "32px" }}
             transition={{ duration: 0.6 }}
             viewport={{ once: false }}
-            className="glassWhite p-8 rounded-3xl mt-8 px-2 w-fit"
+            className="p-8 rounded-3xl mt-8 px-2 md:w-fit"
           >
             <p className="text-lg text-center mb-2 border-b border-green-300 text-white uppercase font-russo">
               What i started with
@@ -153,6 +169,7 @@ export default function Stack() {
                   whileInView={{ opacity: 1, marginLeft: "0px" }}
                   transition={{ duration: 0.4 }}
                   viewport={{ once: false }}
+                  key={item.name}
                   className="border-b border-gray-600"
                 >
                   <div className="relative px-10 flex items-center justify-center py-2 w-fit">
@@ -172,7 +189,7 @@ export default function Stack() {
             whileInView={{ opacity: 1, marginTop: "32px" }}
             transition={{ duration: 0.6 }}
             viewport={{ once: false }}
-            className="glassWhite p-8 rounded-3xl mt-8 ml-10 px-2 w-fit"
+            className=" p-8 rounded-3xl mt-8 md:ml-10 px-2"
           >
             <p className="text-lg text-center mb-2 border-b border-green-300 text-white font-russo uppercase">
               What I Learnt To build what i want
@@ -189,6 +206,7 @@ export default function Stack() {
                   whileInView={{ opacity: 1, marginLeft: "0px" }}
                   transition={{ duration: 0.4 }}
                   viewport={{ once: false }}
+                  key={item.name}
                   className="border-b border-gray-600"
                 >
                   <div className="relative px-10 flex items-center justify-center py-2 w-fit">
@@ -206,6 +224,12 @@ export default function Stack() {
         </div>
         <div></div>
       </div>
+      <motion.div className="absolute right-4 top-16 text-green-400 lg:w-96 w-48 p-2 border-b border-l rounded-bl-xl text-sm hidden md:block">
+        I'm exicted to learn new things and apply them quickly. I've learnt more
+        technologies like Github, Npm, FramerMotion etc. These are the ones I
+        work with the most.
+        {slantedArrow}
+      </motion.div>
     </div>
   );
 }

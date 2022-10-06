@@ -9,10 +9,12 @@ import codePattern from "../public/codePattern3.svg";
 import Stack from "../components/Stack";
 import Projects from "../components/Projects";
 import { motion, useTime, useTransform } from "framer-motion";
+
 /* import codePattern from "../public/Stack/trianglePattern.svg"; */
 
 export default function Home() {
   const [isHoverd, setIsHovered] = react.useState(false);
+  const [aboutMe, setAboutMe] = react.useState(false);
 
   const time = useTime();
   const opacity = useTransform(
@@ -69,11 +71,49 @@ export default function Home() {
   );
 
   return (
-    <div className="font-grotesk scrollbar-thin scrollbar-thumb-green-300 scrollbar-track-gray-900 overflow-y-auto h-screen scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
-      <motion.div className="h-screen w-full bg-gray-800 relative">
-        <div className="flex justify-center w-full items-center"></div>
-
-        <div className="flex items-center  mt-40 p-2 flex-col">
+    <motion.div className="font-grotesk scrollbar-thin scrollbar-thumb-green-300 scrollbar-track-gray-900 overflow-y-auto h-screen scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
+      <motion.div className="h-screen w-full bg-gray-800 relative overflow-x-hidden">
+        <div
+          className={`w-full md:h-full h-screen bg-slate-900 duration-500 z-40 text-gray-400 top-0 pt-0 ${
+            aboutMe ? "" : "-translate-x-full"
+          } absolute`}
+        >
+          <button
+            className="absolute top-20 right-6 flex items-center"
+            onClick={() => {
+              setAboutMe((prev) => !prev);
+            }}
+          >
+            <div className="rotate-180 "> {slantedArrow}</div>
+            <p className="ml-2 -mt-1"> Less About Me</p>
+          </button>
+          <div className="flex md:flex-row flex-col items-center justify-center mt-40 ">
+            <img
+              src={PortPhoto.src}
+              className="md:border-2 border-l-2 md:-ml-6 border-b-4 md:rounded rounded-[40px] border-green-500 object-cover md:object-none md:h-96 md:object-bottom bg-gray-300 md:w-96 h-48 w-48"
+            ></img>
+            <div className="ml-8 flex flex-col  md:h-96 mt-4 md:mt-0">
+              <div className="font-russo md:text-8xl text-white md:mt-20">
+                HI. I'm Derin Owoade,
+              </div>
+              <div className="font-grotesk md:text-lg text-sm">
+                a Mechanical Engineer turned Frontend Engineer. From my previous
+                career path you may have guessed I love Engineering or generally
+                just building things and making them work, it's what drove me
+                towards this field. When I'm not doing that, i'm playing Fifa,
+                trying to improve my K/D ratio in Valorant , noodling on my
+                guitar or Writing watpad worthy fiction 😁. Cheers!{" "}
+              </div>
+            </div>
+          </div>
+        </div>
+        <motion.div
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center pt-40 p-2 flex-col h-full w-full"
+        >
           <motion.div
             initial={{ translatey: -150, opacity: 0 }}
             animate={{
@@ -84,20 +124,25 @@ export default function Home() {
               duration: 0.8,
               ease: "backOut",
             }}
-            className="lg:text-9xl md:text-7xl text-5xl text-gray-700 font-russo"
+            className=" xl:text-9xl lg:text-8xl md:text-7xl text-5xl text-gray-700 font-russo"
           >
             <span className="text-white">Hi, i'm Derin and i'm a </span>
             <span className="p-1">Frontend Engineer</span>
           </motion.div>
-          <motion.div className="text-green-400 self-start ml-2 w-96 md:text-base text-sm   border-b border-l border-white rounded-bl-2xl mt-4 p-2">
+          <motion.div className="text-green-400 md:self-start self-end md:ml-2 md:w-96 w-64 md:text-base text-sm   border-b border-l border-white rounded-bl-2xl mt-4 p-2">
             I enjoy working with and building systems for Frontend apps.
             Essentially Figuring out the puzzle of how each piece fits to create
             an Awesome App.
-            <div className="text-gray-500 flex items-center mt-2">
+            <button
+              className="text-gray-500 flex items-center mt-2 z-10"
+              onClick={() => {
+                setAboutMe(true);
+              }}
+            >
               <p className="mr-2">More About Me</p> {slantedArrow}
-            </div>
+            </button>
           </motion.div>
-          <div className="absolute right-8 bottom-32 text-gray-400 flex items-center animate-bounce">
+          <div className="absolute right-8 md:bottom-32 bottom-4 text-gray-400 flex items-center animate-bounce z-40">
             {downArrow} <p className="ml-2">Scroll Down</p>
           </div>
           <motion.div
@@ -198,10 +243,10 @@ export default function Home() {
             className="absolute bottom-2 h-[220px] right-2 hidden"
             style={{ rotate: "2deg" }}
           ></motion.img>
-        </div>
+        </motion.div>
       </motion.div>
       <Stack></Stack>
       <Projects></Projects>
-    </div>
+    </motion.div>
   );
 }
